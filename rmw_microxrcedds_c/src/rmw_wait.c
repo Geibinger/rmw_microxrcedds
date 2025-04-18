@@ -99,7 +99,7 @@ rmw_wait(
   if (available_contexts != 0) {
     int32_t per_session_timeout =
       (timeout.i32 == UXR_TIMEOUT_INF) ? UXR_TIMEOUT_INF :
-      (int32_t)((float)timeout.i32 / (float)available_contexts);
+      (timeout.i32 / available_contexts);
 
     item = session_memory.allocateditems;
     while (item != NULL) {
